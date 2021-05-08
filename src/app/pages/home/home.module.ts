@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutes } from './home.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild(HomeRoutes),
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    HeaderModule
   ]
 })
 export class HomeModule { }
