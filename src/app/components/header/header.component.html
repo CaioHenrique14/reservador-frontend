@@ -1,11 +1,18 @@
 <header class="headerContainer">
-  <img src="./../../../assets/icones/icon.png" alt="Podcastr" />
-  <p>O melhor lugar para alugar, sempre</p>
-
-  <button mat-raised-button class="btnLogin" style="margin-left: 45%;" (click)="onClickMenu()">
-    LOGIN
-  </button>
-    <button mat-raised-button class="btnSubmit"  (click)="onClickMenu()">
-    <mat-icon>{{isMenu ? 'close' : 'menu_open' }}</mat-icon>
-  </button>
+  <div class="row">
+    <div class="col-8">
+      <img src="./../../../assets/icones/icon.png" alt="Podcastr" />
+      <span>O melhor lugar para alugar, sempre</span>
+    </div>
+    <div class="col-2">
+      <button mat-raised-button class="btnLogin" (click)="onClickMenu()">
+        LOGIN
+      </button>
+    </div>
+    <div class="col-2">
+      <button mat-raised-button class="btnSubmit" (click)="onClickMenu()">
+        <mat-icon>{{isMenu ? 'close' : 'menu_open' }}</mat-icon>
+      </button>
+    </div>
+  </div>
 </header>
