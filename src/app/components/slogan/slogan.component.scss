@@ -1,0 +1,21 @@
+div{
+    height:50%;
+    width:60%;
+    margin-top: 10%;
+    margin-left: 10%;
+    border: 4px solid var(--orange-500);
+    padding: 3rem;
+
+    p{
+        color: var(--white);
+        font-size: 2.2rem;
+        font-family: Inter, sans-serif;
+        text-transform: uppercase;
+        padding: 1rem 1rem;
+        font-weight: 600;
+    }
+
+    .btnSubmit{
+        margin-left: 1rem;
+    }
+}

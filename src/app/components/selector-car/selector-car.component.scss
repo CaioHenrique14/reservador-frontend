@@ -1,5 +1,5 @@
 .selectorContainer {
-
+  transition: visibility 0s, opacity 0.5s linear;
   padding: 3rem 3rem;
   width: 23vw;
   height: 100vh;
@@ -79,19 +79,19 @@
         }
       }
 
-      mat-form-field{
-          width:90%;
+      mat-form-field {
+        width: 90%;
       }
     }
   }
 }
 
-mat-option{
-    background: var(--gray-500);
-    color: var(--gray-100);
+mat-option {
+  background: var(--gray-500);
+  color: var(--gray-100);
 }
 
-::ng-deep mat-datepicker-content{
-    background: var(--gray-500);
-    color: var(--gray-100);
+::ng-deep mat-datepicker-content {
+  background: var(--gray-500);
+  color: var(--gray-100);
 }

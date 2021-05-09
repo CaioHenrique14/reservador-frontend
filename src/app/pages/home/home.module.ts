@@ -7,6 +7,8 @@ import { HomeRoutes } from './home.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeaderModule } from '../../components/header/header.module';
+import { SloganModule } from 'src/app/components/slogan/slogan.module';
+import { ResultCarModule } from 'src/app/components/result-car/result-car.module';
 
 
 
@@ -21,7 +23,9 @@ import { HeaderModule } from '../../components/header/header.module';
     ReactiveFormsModule,
     MaterialModule,
     HeaderModule,
-    SelectorCarModule
+    SelectorCarModule,
+    SloganModule,
+    ResultCarModule
   ]
 })
 export class HomeModule { }

@@ -1,7 +1,9 @@
 
 <div class=wrapper>
     <main>
-        <app-header (openMenu)="openMenu($event)"></app-header>
+        <app-header (openMenu)="openMenu($event)" [isMenu]="isMenu"></app-header>
+        <app-slogan (openMenu)="openMenu($event)" [isMenu]="isMenu"></app-slogan>
     </main>
     <app-selector-car [hidden]="!isMenu"></app-selector-car>
+    <app-result-car [hidden]="!isResult"></app-result-car>
 </div>

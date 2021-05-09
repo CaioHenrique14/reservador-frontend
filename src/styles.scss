@@ -102,6 +102,7 @@ button{
   padding:0.5rem 2rem;
   border:0;
   border-radius:2%;
+  text-transform: uppercase;
 }
 
 .btnLogin{
@@ -111,5 +112,6 @@ button{
   font-size:1.5rem;
   padding:0.7rem 2rem;
   font-family: Lexend,sans-serif;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
+

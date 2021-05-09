@@ -1,0 +1,56 @@
+.resultContainer {
+    padding: 3rem 3rem;
+    width: 23vw;
+    height: 100vh;
+    right: 0px;
+    background: var(--white);
+    color: var(--gray-500);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+  
+      mat-icon {
+        color: var(--orange-500)
+      }
+    }
+  
+    strong {
+      font-family: Lexend, sans-serif;
+      font-weight: 600;
+    }
+
+    span {
+        color: var(--orange-500);
+        font-weight: 600;
+      }
+  
+    footer {
+      align-self: stretch;
+  
+      &.empty .progress {
+        opacity: 0.5;
+      }
+    }
+  }
+  
+
+  .resultContainer::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  .resultContainer::-webkit-scrollbar-track {
+    background: var(--gray-100);        /* color of the tracking area */
+  }
+  
+  .resultContainer::-webkit-scrollbar-thumb {
+    background-color: var(--orange-700);     /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid var(--gray-100);   /* creates padding around scroll thumb */
+  }
