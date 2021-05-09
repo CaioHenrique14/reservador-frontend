@@ -1,3 +1,4 @@
+import { SelectorCarModule } from './../../components/selector-car/selector-car.module';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -5,7 +6,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutes } from './home.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HeaderModule } from 'src/app/components/header/header.module';
+import { HeaderModule } from '../../components/header/header.module';
 
 
 
@@ -19,7 +20,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HeaderModule
+    HeaderModule,
+    SelectorCarModule
   ]
 })
 export class HomeModule { }

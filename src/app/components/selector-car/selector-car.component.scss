@@ -1,0 +1,70 @@
+.selectorContainer {
+
+  padding: 3rem 3rem;
+  width: 30vw;
+  height: 100vh;
+  right: 0px;
+  background: var(--gray-700);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    mat-icon {
+      color: var(--orange-500)
+    }
+  }
+
+  strong {
+    font-family: Lexend, sans-serif;
+    font-weight: 600;
+  }
+
+  footer {
+    align-self: stretch;
+
+    &.empty .progress {
+      opacity: 0.5;
+    }
+  }
+}
+
+.filter {
+  width: 100%;
+  font-family: Lexend, sans-serif;
+
+  .row-title {
+    background: var(--gray-500);
+    padding: 1rem 1rem;
+  }
+
+  .title {
+    color: var(--orange-500);
+  }
+
+  .row-item {
+    div {
+      border: 1px solid var(--gray-500);
+      text-align: center;
+      padding: 1rem 1rem;
+
+      .btnIconModel {
+        background-color: transparent;
+        border: 0px solid transparent;
+        text-align: center;
+
+        mat-icon {
+          color: var(--white);
+
+        }
+      }
+    }
+  }
+}

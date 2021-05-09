@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectorCarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
   }
