@@ -1,7 +1,7 @@
 .selectorContainer {
 
   padding: 3rem 3rem;
-  width: 30vw;
+  width: 23vw;
   height: 100vh;
   right: 0px;
   background: var(--gray-700);
@@ -53,18 +53,45 @@
     div {
       border: 1px solid var(--gray-500);
       text-align: center;
-      padding: 1rem 1rem;
+      padding: 0px;
 
-      .btnIconModel {
-        background-color: transparent;
-        border: 0px solid transparent;
-        text-align: center;
+      mat-button-toggle-group {
+        mat-button-toggle {
+          background-color: transparent;
+          border: 1px solid var(--gray-500);
+          text-align: center;
 
-        mat-icon {
-          color: var(--white);
+          mat-icon {
+            color: var(--white);
+          }
 
+          &:hover {
+            mat-icon {
+              color: var(--orange-500);
+            }
+          }
         }
+
+        .mat-button-toggle-checked {
+          mat-icon {
+            color: var(--orange-500);
+          }
+        }
+      }
+
+      mat-form-field{
+          width:90%;
       }
     }
   }
+}
+
+mat-option{
+    background: var(--gray-500);
+    color: var(--gray-100);
+}
+
+::ng-deep mat-datepicker-content{
+    background: var(--gray-500);
+    color: var(--gray-100);
 }

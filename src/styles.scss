@@ -94,3 +94,22 @@ button{
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+
+.btnSubmit{
+  background: var(--orange-500);
+  color: var(--gray-700);
+  padding:0.5rem 2rem;
+  border:0;
+  border-radius:2%;
+}
+
+.btnLogin{
+  background-color: transparent;
+  color: var(--orange-500);
+  border:1px solid var(--orange-500);
+  font-size:1.5rem;
+  padding:0.7rem 2rem;
+  font-family: Lexend,sans-serif;
+  text-transform: capitalize;
+}

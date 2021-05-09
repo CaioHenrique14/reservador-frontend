@@ -61,6 +61,10 @@ export class AppComponent {
       `volante`,
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/volante.svg")
     );
+    this.matIconRegistry.addSvgIcon(
+      `pin`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/pin.svg")
+    );
     
   }
 }
