@@ -1,13 +1,13 @@
 <header class="headerContainer">
   <div class="row">
     <div class="col-8">
-      <img src="./../../../assets/icones/icon.png" alt="Podcastr" />
+      <img src="./../../../assets/icones/icon.png" alt="RentACar" />
       <span>O melhor lugar para alugar, sempre</span>
     </div>
     <div class="col-2">
-      <a mat-raised-button class="btnLogin" [routerLink]="'/login'">
+      <button mat-raised-button class="btnLogin" (click)="onClickLogin()">
         LOGIN
-      </a>
+      </button>
     </div>
     <div class="col-2">
       <button mat-raised-button class="btnSubmit" (click)="onClickMenu()">

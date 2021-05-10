@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,16 +14,24 @@ export class HeaderComponent implements OnInit {
   @Input()
   isMenu = false;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
 
-  onClickMenu(){
+  onClickMenu() {
     this.isMenu = !this.isMenu;
-    this.openMenu.emit({isMenu: this.isMenu});
+    this.openMenu.emit({ isMenu: this.isMenu });
   }
-  
+
+  onClickLogin() {
+    this.router.navigate([
+      '/login'
+    ]);
+  }
+
 
 }

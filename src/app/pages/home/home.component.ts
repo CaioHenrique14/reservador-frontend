@@ -19,4 +19,9 @@ export class HomeComponent implements OnInit {
     this.isMenu = element.isMenu;
   }
 
+  openResult(element) {
+    this.isResult = element.isResult;
+    console.log('openResult: ',element)
+  }
+
 }

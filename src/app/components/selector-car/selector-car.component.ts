@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -13,6 +13,12 @@ export class SelectorCarComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
+
+  @Output()
+  public openResult: EventEmitter<any> = new EventEmitter();
+
+  @Input()
+  isResult = false;
 
   constructor() {
 
@@ -30,6 +36,11 @@ export class SelectorCarComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  onClickResult() {
+    this.isResult = !this.isResult;
+    this.openResult.emit({ isResult: this.isResult });
   }
 
 }

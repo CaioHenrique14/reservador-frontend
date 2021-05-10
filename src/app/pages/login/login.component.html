@@ -1,22 +1,32 @@
-
 <div class=wrapper>
   <main>
-    <body class="text-center">
-      <form class="form-signin">
-        <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Faça login</h1>
-        <label for="inputEmail" class="sr-only">Endereço de email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Seu email" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Lembrar de mim
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-      </form>
-    </body>
+    <div class="btnVoltar">
+      <a href="/home"><mat-icon>arrow_back</mat-icon></a>
+      <!-- (click)="onClickLogin()" -->
+    </div>
+
+
+    <form [formGroup]="form">
+      <div class="formGroup">
+        <img class="mb-4" src="./../../../assets/icones/icon.png" alt="RentACar" width="72" height="72">
+        <p>Entrar</p>
+      </div>
+      <div class="formGroup">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email" />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="formGroup">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="senha" />
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="btnLogin mr-3">Entrar</button>
+      <button mat-raised-button class="btnSubmit">Cadastrar-se</button>
+    </form>
   </main>
 </div>

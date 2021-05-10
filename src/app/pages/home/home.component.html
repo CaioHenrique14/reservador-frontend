@@ -4,6 +4,6 @@
         <app-header (openMenu)="openMenu($event)" [isMenu]="isMenu"></app-header>
         <app-slogan (openMenu)="openMenu($event)" [isMenu]="isMenu"></app-slogan>
     </main>
-    <app-selector-car [hidden]="!isMenu"></app-selector-car>
+    <app-selector-car [hidden]="!isMenu" (openResult)="openResult($event)" [isResult]="isResult"></app-selector-car>
     <app-result-car [hidden]="!isResult"></app-result-car>
 </div>
