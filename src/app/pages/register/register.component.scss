@@ -11,6 +11,7 @@
 
     .btnVoltar {
       margin: 5%;
+      position: fixed;
 
       mat-icon {
         color: var(--orange-500);
@@ -20,7 +21,7 @@
 
     form {
       margin: auto;
-      height: 50%;
+      height: 70%;
       width: 35%;
       margin-left: 32.5%;
       margin-top: 5%;

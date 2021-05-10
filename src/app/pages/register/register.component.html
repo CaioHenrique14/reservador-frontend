@@ -9,7 +9,14 @@
     <form [formGroup]="form">
       <div class="formGroup">
         <img class="mb-4" src="./../../../assets/icones/icon.png" alt="RentACar" width="72" height="72">
-        <p>Entrar</p>
+        <p>Cadastrar-se</p>
+      </div>
+      <div class="formGroup">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Nome</mat-label>
+          <input matInput type="email" formControlName="name" />
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
       </div>
       <div class="formGroup">
         <mat-form-field appearance="outline" class="formLogin">
@@ -20,13 +27,20 @@
       </div>
       <div class="formGroup">
         <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Telefone</mat-label>
+          <input matInput type="text" formControlName="phone" />
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="formGroup">
+        <mat-form-field appearance="outline" class="formLogin">
           <mat-label>Senha</mat-label>
           <input matInput type="password" formControlName="password" />
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
-      <button mat-raised-button class="btnLogin mr-3" (click)="onLogin()">Entrar</button>
-      <a mat-raised-button class="btnSubmit" href="/register">Cadastrar-se</a>
+      <a href="/home" mat-raised-button class="btnLogin mr-3">Voltar</a>
+      <button mat-raised-button class="btnSubmit" (click)="onRegister()" [disabled]="form.invalid">Cadastrar-se</button>
     </form>
   </main>
 </div>
