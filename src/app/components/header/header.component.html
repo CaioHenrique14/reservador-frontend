@@ -5,9 +5,14 @@
       <span>O melhor lugar para alugar, sempre</span>
     </div>
     <div class="col-2">
-      <button mat-raised-button class="btnLogin" (click)="onClickLogin()">
-        LOGIN
-      </button>
+      <div *ngIf="user">
+        <p class="pUser">Olá {{user.name}}</p>
+      </div>
+      <div *ngIf="!user">
+        <button mat-raised-button class="btnLogin" (click)="onClickLogin()">
+          LOGIN
+        </button>
+      </div>
     </div>
     <div class="col-2">
       <button mat-raised-button class="btnSubmit" (click)="onClickMenu()">

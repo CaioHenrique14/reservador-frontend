@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserDTO } from 'src/app/model/user-dto.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,11 +16,18 @@ export class HeaderComponent implements OnInit {
   @Input()
   isMenu = false;
 
+  user: UserDTO;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    if(this.authService.session)
+    this.user = this.authService.session;
+
+    console.log('user: ',this.user);
   }
 
 

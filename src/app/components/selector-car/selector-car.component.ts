@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
+import { FilterSelectorCarDTO } from 'src/app/model/filter/filter-selector-car-dto.model';
 
 @Component({
   selector: 'app-selector-car',
@@ -9,10 +10,13 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./selector-car.component.scss']
 })
 export class SelectorCarComponent implements OnInit {
-  
+
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
+
+  filter: FilterSelectorCarDTO;
+  form: FormGroup;
 
   @Output()
   public openResult: EventEmitter<any> = new EventEmitter();
@@ -20,11 +24,19 @@ export class SelectorCarComponent implements OnInit {
   @Input()
   isResult = false;
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      body: new FormControl('', []),
+      origin: new FormControl('', []),
+      dateInitial: new FormControl('', []),
+      dateFinal: new FormControl('', [])
+    });
+
+
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -39,8 +51,9 @@ export class SelectorCarComponent implements OnInit {
   }
 
   onClickResult() {
-    this.isResult = !this.isResult;
-    this.openResult.emit({ isResult: this.isResult });
+    console.log('onClickResult: ',this.form.value)
+    // this.isResult = !this.isResult;
+    // this.openResult.emit({ isResult: this.isResult });
   }
 
 }

@@ -35,24 +35,13 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/sedan.svg")
     );
     this.matIconRegistry.addSvgIcon(
-      `microbus`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/microbus.svg")
-    );
-    this.matIconRegistry.addSvgIcon(
-      `minivan`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/minivan.svg")
-    );
-    this.matIconRegistry.addSvgIcon(
-      `pick-up`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/pick-up.svg")
+      `calendar`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/calendar.svg")
     );
     this.matIconRegistry.addSvgIcon(
       `sedan`,
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/sedan.svg")
-    );  this.matIconRegistry.addSvgIcon(
-      `sportive`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/sportive.svg")
-    );
+    ); 
     this.matIconRegistry.addSvgIcon(
       `suv`,
       this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icones/svg/suv.svg")
