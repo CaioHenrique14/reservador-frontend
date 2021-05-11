@@ -53,10 +53,10 @@ export class CarService {
       params = params.append('dateFinal', filter.dateInitial.toISOString());
     }
     if(filter.dateFinal){
-      params = params.append('body', filter.dateFinal.toISOString());
+      params = params.append('dateFinal', filter.dateFinal.toISOString());
     }
     if(filter.origin){
-      params = params.append('body', filter.origin);
+      params = params.append('origin', filter.origin);
     }
 
     const url = this.env.url.backend + '/car/filter/';
