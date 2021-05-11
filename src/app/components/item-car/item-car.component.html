@@ -1,9 +1,9 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Onix</h5>
-    <h6 class="card-subtitle mb-2 text-muted">1.0 - Manual - 2016</h6>
-    <img class="card-img-top" src="/../assets/cars/onix.png" alt="Imagem de capa do card">
-    <span class="card-value">{{ 180 | currency: 'BRL': 'R$'}}</span>
-    <button mat-raised-button class="btnItem">Selecionar</button>
+    <h5 class="card-title">{{car.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{car.transmission}} - {{car.year}}</h6>
+    <img class="card-img-top" [src]="car.image" alt="Imagem de capa do card">
+    <span class="card-value">{{ car.price | currency: 'BRL': 'R$'}}</span>
+    <button mat-raised-button [disabled]="!car.available" class="btnItem">{{car.available ? 'Selecionar' : 'Indisponível' }}</button>
   </div>
 </div>

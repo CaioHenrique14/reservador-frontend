@@ -5,19 +5,8 @@
   </header>
 
   <form>
-    <div class="filter mt-3">
-      <app-item-car></app-item-car>
-    </div>
-    <div class="filter mt-3">
-      <app-item-car></app-item-car>
-    </div>
-    <div class="filter mt-3">
-      <app-item-car></app-item-car>
-    </div>
-    <div class="filter mt-3">
-      <app-item-car></app-item-car>
-    </div>
-
-    
+    <div class="filter mt-3" *ngFor="let car of listCar">
+      <app-item-car [car]="car"></app-item-car>
+    </div>    
   </form>
 </div>

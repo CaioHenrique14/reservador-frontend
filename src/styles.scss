@@ -107,6 +107,12 @@ button {
   border: 0;
   border-radius: 2%;
   text-transform: uppercase;
+
+  &:disabled {
+    background: var(--orange-100);
+    color: var(--gray-300);
+    cursor: not-allowed;
+  }
 }
 
 .btnLogin {
@@ -180,7 +186,7 @@ button {
     margin-left: 0.5%;
     border-radius: 5px;
 
-    mat-icon{
+    mat-icon {
       padding: 1rem;
       color: var(--gray-500)
     }
@@ -195,20 +201,20 @@ button {
   }
 }
 
-.formBody{
-  width:99%;
-  margin-left :0.5% !important;
+.formBody {
+  width: 99%;
+  margin-left: 0.5% !important;
   background-color: var(--white);
   border-radius: 5px;
 
   mat-form-field {
-    width:100%;
+    width: 100%;
   }
 }
 
-.footerModal{
-  width:99%;
-  margin-left :0.5% !important;
+.footerModal {
+  width: 99%;
+  margin-left: 0.5% !important;
   background-color: var(--white);
   border-radius: 5px;
   align-items: center;
@@ -222,20 +228,14 @@ button {
 
 ::-webkit-scrollbar {
   width: 12px;
-  /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
   background: var(--gray-100);
-  /* color of the tracking area */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--orange-700);
-  /* color of the scroll thumb */
   border-radius: 20px;
-  /* roundness of the scroll thumb */
   border: 3px solid var(--gray-100);
-  /* creates padding around scroll thumb */
 }
-

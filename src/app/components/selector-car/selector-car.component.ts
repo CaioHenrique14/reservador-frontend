@@ -28,14 +28,14 @@ export class SelectorCarComponent implements OnInit {
   @Input()
   isResult = false;
 
-  constructor(private formBuilder: FormBuilder, private unitService: UnitService,private carService:CarService) {
+  constructor(private formBuilder: FormBuilder, private unitService: UnitService, private carService: CarService) {
 
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      body: new FormControl('', []),
-      origin: new FormControl('', []),
+      body: new FormControl('', [Validators.required]),
+      origin: new FormControl('',  [Validators.required]),
       dateInitial: new FormControl('', []),
       dateFinal: new FormControl('', [])
     });
@@ -54,36 +54,24 @@ export class SelectorCarComponent implements OnInit {
   private _filter(val) {
     if (this.listUnits) {
       return this.listUnits.filter(option =>
-        option.name.toLowerCase().includes(val.toLowerCase()));
+        option.city.includes(val));
     }
   }
 
   displayUnit(unit: UnitDTO): any {
-    return unit ? `${unit.name} - ${unit.city} / ${unit.state}` : '';
+    return unit ? `${unit.city} -  ${unit.state} (${unit.name})` : '';
   }
 
   onClickResult() {
     const value = this.form.value;
-    let filter:FilterSelectorCarDTO = {
-      body:value.body,
-      origin:value.origin._id,
-      dateFinal:value.dateFinal,
-      dateInitial:value.dateInitial
+    let filter: FilterSelectorCarDTO = {
+      body: value.body,
+      origin: value.origin._id,
+      dateFinal: value.dateFinal,
+      dateInitial: value.dateInitial
     };
-
-    this.carService.findByFilter(filter).subscribe(result=> {
-      console.log('findByFilter',result)
-    },err=> {
-      Swal.fire({
-        title: 'Atenção',
-        text: 'Dados inválidos',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
-    });
-
-    // this.isResult = !this.isResult;
-    // this.openResult.emit({ isResult: this.isResult });
+    this.isResult = true;
+    this.openResult.emit({ isResult: this.isResult, filter: filter });
   }
 
 }
