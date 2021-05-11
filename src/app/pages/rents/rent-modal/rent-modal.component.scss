@@ -1,0 +1,11 @@
+
+mat-option {
+    background: var(--gray-500);
+    color: var(--gray-100);
+  }
+  
+  ::ng-deep mat-datepicker-content {
+    background: var(--gray-500);
+    color: var(--gray-100);
+  }
+  

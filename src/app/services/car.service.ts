@@ -17,9 +17,9 @@ export class CarService {
     return this.client.post(url, carData);
   }
 
-  updateCar(carData: CarDTO): Observable<any> {
-    const url = this.env.url.backend + '/car';
-    return this.client.patch(url, carData);
+  updateCar(id: string, carData: CarDTO): Observable<any> {
+    const url = this.env.url.backend + '/car/' + id;
+    return this.client.put(url, carData);
   }
 
   findById(id: string): Observable<any> {

@@ -5,15 +5,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RentsRoutes } from './rents.routing';
 import { MaterialModule } from 'src/app/material.module';
+import { RentModalComponent } from './rent-modal/rent-modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(RentsRoutes),
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
   ],
-  declarations: [RentsComponent]
+  declarations: [RentsComponent,RentModalComponent],
+  entryComponents:[RentModalComponent]
 })
 export class RentsModule { }

@@ -13,14 +13,14 @@ export class UserService {
   constructor(private client: HttpClient) { }
 
   createUser(userData: UserDTO): Observable<any> {
-    console.log('createUser: ',userData);
+    console.log('createUser: ', userData);
     const url = this.env.url.backend + '/user';
     return this.client.post(url, userData);
   }
 
-  updateUser(userData: UserDTO): Observable<any> {
-    const url = this.env.url.backend + '/user';
-    return this.client.patch(url, userData);
+  updateUser(id: string, userData: UserDTO): Observable<any> {
+    const url = this.env.url.backend + '/user/' + id;
+    return this.client.put(url, userData);
   }
 
   findById(id: string): Observable<any> {

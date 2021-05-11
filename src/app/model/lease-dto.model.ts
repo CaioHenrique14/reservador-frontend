@@ -1,6 +1,6 @@
 export class LeaseDTO {
   _id?: string;
-  idCar?: number;
+  idCar?: string;
   idUser?: string;
   dateInitial?: string;
   dateFinal?: number;

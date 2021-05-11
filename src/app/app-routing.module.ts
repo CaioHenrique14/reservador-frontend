@@ -27,7 +27,19 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
-      }
+      },
+      {
+        path: 'rents',
+        loadChildren: () => import('./pages/rents/rents.module').then(m => m.RentsModule)
+      },
+      {
+        path: 'cars',
+        loadChildren: () => import('./pages/cars/cars.module').then(m => m.CarsModule)
+      },
+      {
+        path: 'units',
+        loadChildren: () => import('./pages/units/units.module').then(m => m.UnitsModule)
+      },
     ]
   },
 ];

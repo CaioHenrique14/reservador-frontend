@@ -1,3 +1,69 @@
-<p>
-  rents works!
-</p>
+<div class="card card-table">
+  <div class="card-header card-header-primary card-header-icon">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="card-icon">
+          <mat-icon>car_rental</mat-icon>
+        </div>
+        <h4 class="card-title">Reservas</h4>
+      </div>
+      <div class="col-12 col-md-6">
+        <button type="button" class="btnFab" mat-flat-button (click)="openRent()">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- idCar Column -->
+      <ng-container matColumnDef="idCar">
+        <th mat-header-cell *matHeaderCellDef> Carro </th>
+        <td mat-cell *matCellDef="let element"> {{element.idCar}} </td>
+      </ng-container>
+
+      <!-- idUser Column -->
+      <ng-container matColumnDef="idUser">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.idUser}} </td>
+      </ng-container>
+
+      <!-- dateInitial Column -->
+      <ng-container matColumnDef="dateInitial">
+        <th mat-header-cell *matHeaderCellDef> Data inicial </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateInitial}} </td>
+      </ng-container>
+
+      <!-- dateFinal Column -->
+      <ng-container matColumnDef="dateFinal">
+        <th mat-header-cell *matHeaderCellDef>Data Final </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateFinal}} </td>
+      </ng-container>
+
+      <!-- mileage Column -->
+      <ng-container matColumnDef="mileage">
+        <th mat-header-cell *matHeaderCellDef>Kilometragem </th>
+        <td mat-cell *matCellDef="let element"> {{element.mileage}} </td>
+      </ng-container>
+
+      <!-- value Column -->
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Valor </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

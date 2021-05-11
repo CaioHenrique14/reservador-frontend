@@ -1,0 +1,75 @@
+<h2 mat-dialog-title class="titleModal">
+  <div class="row">
+    <div class="col-1">
+      <mat-icon> car_rental</mat-icon>
+    </div>
+    <div class="col-10 titleHeader">Reservas</div>
+    <div class="col-1">
+      <button mat-button class="btnFab" (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</h2>
+
+<div mat-dialog-content class="formBody">
+  <form [formGroup]="form">
+    <div class="row mt-2">
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="formLogin">
+        <mat-label>Carro</mat-label>
+        <input matInput type="email" formControlName="idCar" />
+        <mat-icon matSuffix>commute</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field appearance="outline" class="formLogin">
+        <mat-label>Unidade</mat-label>
+        <input matInput type="email" formControlName="idUnit" />
+        <mat-icon matSuffix>store_mall_directory</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Data Inicial</mat-label>
+        <input matInput [matDatepicker]="origem" formControlName="dateInitial">
+        <mat-datepicker-toggle matSuffix [for]="origem"></mat-datepicker-toggle>
+        <mat-datepicker #origem></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Data Final</mat-label>
+        <input matInput [matDatepicker]="final" formControlName="dateFinal">
+        <mat-datepicker-toggle matSuffix [for]="final"></mat-datepicker-toggle>
+        <mat-datepicker #final></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field appearance="outline" class="formLogin">
+        <mat-label>Kilometragem</mat-label>
+        <input matInput type="text" formControlName="mileage" />
+        <mat-icon matSuffix>commute</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field appearance="outline" class="formLogin">
+        <mat-label>Valor</mat-label>
+        <input matInput type="text" formControlName="value" />
+        <mat-icon matSuffix>photo</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-9">
+      <mat-form-field appearance="outline" class="formLogin">
+        <mat-label>Adicionais</mat-label>
+        <input matInput type="text" formControlName="notes" />
+        <mat-icon matSuffix>commute</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  </form>
+</div>
+<div mat-dialog-actions class="footerModal mt-3">
+  <button mat-button class="ml-5 mr-2" style="margin-left: 70% !important;" (click)="onNoClick()">Fechar</button>
+  <button mat-button-raised class="btnSubmit"  (click)="onCreate()"  cdkFocusInitial>Salvar</button>
+</div>

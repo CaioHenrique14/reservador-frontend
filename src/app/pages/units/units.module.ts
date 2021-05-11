@@ -5,6 +5,7 @@ import { UnitsRoutes } from './units.routing';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
+import { UnitModalComponent } from './unit-modal/unit-modal.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { MaterialModule } from 'src/app/material.module';
     ReactiveFormsModule,
     MaterialModule,
   ],
-  declarations: [UnitsComponent]
+  declarations: [UnitsComponent,UnitModalComponent],
+  entryComponents:[UnitModalComponent]
 })
 export class UnitsModule { }

@@ -17,9 +17,9 @@ export class UnitService {
     return this.client.post(url, unitData);
   }
 
-  updateUnit(unitData: UnitDTO): Observable<any> {
-    const url = this.env.url.backend + '/unit';
-    return this.client.patch(url, unitData);
+  updateUnit(id: string, unitData: UnitDTO): Observable<any> {
+    const url = this.env.url.backend + '/unit/' + id;
+    return this.client.put(url, unitData);
   }
 
   findById(id: string): Observable<any> {

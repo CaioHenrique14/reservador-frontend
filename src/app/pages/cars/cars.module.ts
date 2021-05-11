@@ -5,15 +5,20 @@ import { CarsRoutes } from './cars.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 import { RouterModule } from '@angular/router';
+import { CarModalComponent } from './car-modal/car-modal.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(CarsRoutes),
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
   ],
-  declarations: [CarsComponent]
+  declarations: [CarsComponent,CarModalComponent],
+  entryComponents: [CarModalComponent]
 })
 export class CarsModule { }

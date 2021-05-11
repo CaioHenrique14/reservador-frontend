@@ -1,3 +1,63 @@
-<p>
-  cars works!
-</p>
+<div class="card card-table">
+  <div class="card-header card-header-primary card-header-icon">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="card-icon">
+          <mat-icon> directions_car</mat-icon>
+        </div>
+        <h4 class="card-title">Carros</h4>
+      </div>
+      <div class="col-12 col-md-6">
+        <button type="button" class="btnFab" mat-flat-button (click)="openCar()">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Ano </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Year Column -->
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef> Ano </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+
+      <!-- Body Column -->
+      <ng-container matColumnDef="body">
+        <th mat-header-cell *matHeaderCellDef> Carroceria </th>
+        <td mat-cell *matCellDef="let element"> {{element.body}} </td>
+      </ng-container>
+
+      <!-- Transmission Column -->
+      <ng-container matColumnDef="transmission">
+        <th mat-header-cell *matHeaderCellDef>Transmissão </th>
+        <td mat-cell *matCellDef="let element"> {{element.transmission}} </td>
+      </ng-container>
+
+      <!-- available Column -->
+      <ng-container matColumnDef="available">
+        <th mat-header-cell *matHeaderCellDef>Disponível </th>
+        <td mat-cell *matCellDef="let element"> {{element.available}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

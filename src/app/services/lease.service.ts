@@ -12,14 +12,14 @@ export class LeaseService {
 
   constructor(private client: HttpClient) { }
 
-  createLease(LeaseData: LeaseDTO): Observable<any> {
+  createLease(leaseData: LeaseDTO): Observable<any> {
     const url = this.env.url.backend + '/lease';
-    return this.client.post(url, LeaseData);
+    return this.client.post(url, leaseData);
   }
 
-  updateLease(LeaseData: LeaseDTO): Observable<any> {
-    const url = this.env.url.backend + '/lease';
-    return this.client.patch(url, LeaseData);
+  updateLease(id: string, leaseData: LeaseDTO): Observable<any> {
+    const url = this.env.url.backend + '/lease/' + id;
+    return this.client.put(url, leaseData);
   }
 
   findById(id: string): Observable<any> {
