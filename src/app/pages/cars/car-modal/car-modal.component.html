@@ -15,83 +15,107 @@
 <div mat-dialog-content class="formBody">
   <form [formGroup]="form">
     <div class="row mt-2">
-    <div class="col-12">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Nome</mat-label>
-        <input matInput type="email" formControlName="name" />
-        <mat-icon matSuffix>commute</mat-icon>
-      </mat-form-field>
+      <div class="col-8">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Nome</mat-label>
+          <input matInput type="email" formControlName="name" />
+          <mat-icon matSuffix>commute</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Unidade</mat-label>
+          <input type="text" placeholder="Selecione uma unidade" matInput formControlName="idUnit"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUnit">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.name}} - {{option.city}}/{{option.state}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-icon matSuffix>store_mall_directory</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Placa</mat-label>
+          <input matInput type="text" formControlName="plate" />
+          <mat-icon matSuffix> directions_car</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Ano</mat-label>
+          <input matInput type="text" formControlName="year" />
+          <mat-icon matSuffix>calendar_today</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Carroceria</mat-label>
+          <mat-select formControlName="body">
+            <mat-option value="hatchback">Hatchback</mat-option>
+            <mat-option value="sedan">Sedan</mat-option>
+            <mat-option value="jeep">Suv</mat-option>
+            <mat-option value="coupe">Luxo</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>commute</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline" class="formLogin">
+          <input matInput type="text" hidden formControlName="image" />
+          <button type="button" mat-button (click)="fileInput.click()">Escolha o arquivo</button>
+          <input hidden accept="image/*" (change)="changeListener($event)" #fileInput type="file" id="file">
+          <mat-icon matSuffix>photo</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Câmbio</mat-label>
+          <mat-select formControlName="transmission">
+            <mat-option value="manual">Manual</mat-option>
+            <mat-option value="automatico">Automático</mat-option>
+            <mat-option value="semi-automatico">Semi-Automatico</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>commute</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Combustível</mat-label>
+          <mat-select formControlName="fuel">
+            <mat-option value="gasolina">Gasolina</mat-option>
+            <mat-option value="etanol">Etanol</mat-option>
+            <mat-option value="flex">Flex</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>local_gas_station</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Cor</mat-label>
+          <input matInput type="text" formControlName="color" />
+          <mat-icon matSuffix>color_lens</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Valor</mat-label>
+          <input matInput type="text" formControlName="price" />
+          <mat-icon matSuffix> attach_money</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field appearance="outline" class="formLogin">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="available">
+            <mat-option value="true">Disponível</mat-option>
+            <mat-option value="false">Reservado</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>car_rental</mat-icon>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Unidade</mat-label>
-        <input type="text" placeholder="Selecione uma unidade" matInput
-          formControlName="idUnit" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
-            {{option.name}} - {{option.city}}/{{option.state}}
-          </mat-option>
-        </mat-autocomplete>
-        <mat-icon matSuffix>store_mall_directory</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Placa</mat-label>
-        <input matInput type="text" formControlName="plate" />
-        <mat-icon matSuffix> directions_car</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Ano</mat-label>
-        <input matInput type="text" formControlName="year" />
-        <mat-icon matSuffix>calendar_today</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Carroceria</mat-label>
-        <input matInput type="text" formControlName="body" />
-        <mat-icon matSuffix>commute</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Imagem</mat-label>
-        <input matInput type="text" formControlName="image" />
-        <mat-icon matSuffix>photo</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Transmissão</mat-label>
-        <input matInput type="text" formControlName="transmission" />
-        <mat-icon matSuffix>commute</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Combustivel</mat-label>
-        <input matInput type="text" formControlName="fuel" />
-        <mat-icon matSuffix> local_gas_station</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Cor</mat-label>
-        <input matInput type="text" formControlName="color" />
-        <mat-icon matSuffix>color_lens</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field appearance="outline" class="formLogin">
-        <mat-label>Valor</mat-label>
-        <input matInput type="text" formControlName="price" />
-        <mat-icon matSuffix> attach_money</mat-icon>
-      </mat-form-field>
-    </div>
-  </div>
   </form>
 </div>
 <div mat-dialog-actions class="footerModal mt-3">

@@ -11,13 +11,13 @@ import { CarModalComponent } from './car-modal/car-modal.component';
 })
 export class CarsComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'year','body','transmission', 'available'];
+  displayedColumns: string[] = ['name', 'year','body','transmission', 'available','button'];
   dataSource : CarDTO[];
 
   constructor(private carService: CarService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.listar();
+    this.getAllCar();
   }
 
   openCar(): void {
@@ -27,11 +27,27 @@ export class CarsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result:',result);
-      this.listar();
+      this.getAllCar();
     });
   }
 
-  listar(){
+  updateCar(element){
+    const dialogRef = this.dialog.open(CarModalComponent, {
+      data: element,
+      backdropClass: 'modal-maior'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result:',result);
+      this.getAllCar();
+    });
+  }
+
+  deleteCar(element){
+    
+  }
+
+  getAllCar(){
     this.carService.getAllCar().subscribe(result=>{
       this.dataSource = result;
     },err=>{

@@ -5,9 +5,10 @@ export class CarDTO {
   plate?: string;
   year?: number;
   body?: string;
-  image?: string;
+  image?: string | ArrayBuffer;
   transmission?: string;
   fuel?: string;
   color?: string;
   price?: number;
+  available?: boolean;
 }

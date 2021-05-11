@@ -3,6 +3,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FilterSelectorCarDTO } from 'src/app/model/filter/filter-selector-car-dto.model';
+import { UnitDTO } from 'src/app/model/unit-dto.mode';
+import { CarService } from 'src/app/services/car.service';
+import { UnitService } from 'src/app/services/unit.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-selector-car',
@@ -12,8 +16,8 @@ import { FilterSelectorCarDTO } from 'src/app/model/filter/filter-selector-car-d
 export class SelectorCarComponent implements OnInit {
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  filteredOptions: Observable<UnitDTO[]>;
+  listUnits: UnitDTO[];
 
   filter: FilterSelectorCarDTO;
   form: FormGroup;
@@ -24,7 +28,7 @@ export class SelectorCarComponent implements OnInit {
   @Input()
   isResult = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private unitService: UnitService,private carService:CarService) {
 
   }
 
@@ -36,22 +40,48 @@ export class SelectorCarComponent implements OnInit {
       dateFinal: new FormControl('', [])
     });
 
+    this.unitService.getAllUnit().subscribe((result) => {
+      this.listUnits = result;
+    })
 
-    this.filteredOptions = this.myControl.valueChanges
+    this.filteredOptions = this.form.get('origin').valueChanges
       .pipe(
         startWith(''),
-        map(value => this._filter(value))
+        map(val => this._filter(val))
       );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  private _filter(val) {
+    if (this.listUnits) {
+      return this.listUnits.filter(option =>
+        option.name.toLowerCase().includes(val.toLowerCase()));
+    }
+  }
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  displayUnit(unit: UnitDTO): any {
+    return unit ? `${unit.name} - ${unit.city} / ${unit.state}` : '';
   }
 
   onClickResult() {
-    console.log('onClickResult: ',this.form.value)
+    const value = this.form.value;
+    let filter:FilterSelectorCarDTO = {
+      body:value.body,
+      origin:value.origin._id,
+      dateFinal:value.dateFinal,
+      dateInitial:value.dateInitial
+    };
+
+    this.carService.findByFilter(filter).subscribe(result=> {
+      console.log('findByFilter',result)
+    },err=> {
+      Swal.fire({
+        title: 'Atenção',
+        text: 'Dados inválidos',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    });
+
     // this.isResult = !this.isResult;
     // this.openResult.emit({ isResult: this.isResult });
   }

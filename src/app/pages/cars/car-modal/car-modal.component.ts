@@ -19,6 +19,7 @@ export class CarModalComponent implements OnInit {
   form: FormGroup;
   filteredOptions: Observable<UnitDTO[]>;
   listUnits: UnitDTO[];
+  image: string | ArrayBuffer;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +38,7 @@ export class CarModalComponent implements OnInit {
       fuel: ['', [Validators.required]],
       color: ['', [Validators.required]],
       price: ['', [Validators.required]],
+      available: [true, [Validators.required]],
     });
   }
 
@@ -65,10 +67,42 @@ private _filter(val) {
  }
 }
 
-  
+changeListener($event) : void {
+  this.readThis($event.target);
+}
+
+readThis(inputValue: any): void {
+  var file:File = inputValue.files[0];
+  var myReader:FileReader = new FileReader();
+
+  myReader.onloadend = (e) => {
+    this.image = myReader.result;
+  }
+  myReader.readAsDataURL(file);
+}  
+
+displayUnit(unit:UnitDTO): any {
+  return unit ? `${unit.name} - ${unit.city} / ${unit.state}` : '';
+}
+
   onCreate() {
+    const value = this.form.value;
+    let body:CarDTO = {
+      name:value.name,
+      idUnit:value.idUnit._id,
+      plate:value.plate,
+      year:value.year,
+      body:value.body,
+      image:this.image || value.image,
+      transmission:value.transmission,
+      fuel:value.fuel,
+      color:value.color,
+      price:value.price,
+      available: value.available
+    };
+       
     if (this.data) {
-      this.carService.updateCar(this.data._id,this.form.value).subscribe(result => {
+      this.carService.updateCar(this.data._id,body).subscribe(result => {
         Swal.fire({
           title: 'Sucesso',
           text: 'Unidade atualizada com sucesso',
@@ -86,7 +120,7 @@ private _filter(val) {
         })
       });
     } else {
-      this.carService.createCar(this.form.value).subscribe(result => {
+      this.carService.createCar(body).subscribe(result => {
         Swal.fire({
           title: 'Sucesso',
           text: 'Unidade cadastrada com sucesso',

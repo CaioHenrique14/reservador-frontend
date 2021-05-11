@@ -17,7 +17,7 @@ export class RentsComponent implements OnInit {
   constructor(private leaseService: LeaseService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.listar();
+    this.getAllLease();
   }
 
   openRent(): void {
@@ -27,11 +27,27 @@ export class RentsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result:',result);
-      this.listar();
+      this.getAllLease();
     });
   }
 
-  listar(){
+  updateRent(element){
+    const dialogRef = this.dialog.open(RentModalComponent, {
+      data: element,
+      backdropClass: 'modal-maior'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result:',result);
+      this.getAllLease();
+    });
+  }
+
+  deleteRent(element){
+    
+  }
+
+  getAllLease(){
     this.leaseService.getAllLease().subscribe(result=>{
       this.dataSource = result;
     },err=>{
