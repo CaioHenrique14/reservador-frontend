@@ -115,6 +115,21 @@ button {
   }
 }
 
+.btnBack {
+  background: var(--white);
+  color: var(--gray-700);
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--orange-500);
+  border-radius: 2%;
+  text-transform: uppercase;
+
+  &:disabled {
+    background: var(--orange-100);
+    color: var(--gray-300);
+    cursor: not-allowed;
+  }
+}
+
 .btnLogin {
   background-color: transparent;
   color: var(--orange-500);

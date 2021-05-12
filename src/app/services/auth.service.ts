@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { UserDTO } from '../model/user-dto.model';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService implements OnDestroy {
   env = environment;
 
   constructor(
-    private client: HttpClient,
+    private client: HttpClient,private router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService,
   ) { }
 
@@ -33,6 +34,10 @@ export class AuthService implements OnDestroy {
           return response;
         })
       );
+  }
+
+  logout(){
+    this.session = null;
   }
 
   get session(): UserDTO | null {

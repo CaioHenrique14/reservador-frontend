@@ -43,5 +43,12 @@ export class LeaseService {
     return this.client.get(url);
   }
 
+  getLeaseByUser(id: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('id', id);
+    const url = this.env.url.backend + '/lease/user/';
+    return this.client.get(url,{ params });
+  }
+
 
 }

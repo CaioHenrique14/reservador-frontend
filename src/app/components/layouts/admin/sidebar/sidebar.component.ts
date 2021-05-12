@@ -23,5 +23,8 @@ export class SidebarComponent implements OnInit {
     else this.router.navigateByUrl('/home');
   }
 
-
+  onLogout(){
+    this.authService.logout();
+    this.router.navigateByUrl('/home');
+  }
 }

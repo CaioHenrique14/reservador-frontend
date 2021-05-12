@@ -10,24 +10,24 @@
         <button mat-button type="button"><mat-icon>car_rental</mat-icon>Minhas reservas</button>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role == 'admin'">
       <a class="nav-link active" href="/internal/cars"> 
         <button mat-button type="button"><mat-icon> directions_car</mat-icon>Carros</button>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role == 'admin'">
       <a class="nav-link active" href="/internal/units"> 
         <button mat-button type="button"><mat-icon> store_mall_directory</mat-icon>Unidades</button>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role == 'admin'">
       <a class="nav-link active" href="/internal/rents">
         <button mat-button type="button"><mat-icon>car_rental</mat-icon>Reservas</button>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="/home">
-        <button mat-button type="button"><mat-icon>exit_to_app</mat-icon>Sair</button>
+        <button mat-button type="button" (click)="onLogout()"><mat-icon>exit_to_app</mat-icon>Sair</button>
       </a>
     </li>
   </ul>

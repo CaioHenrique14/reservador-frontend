@@ -56,6 +56,9 @@ export class CheckoutComponent implements OnInit {
       console.error(err);
     })
   }
+  onHome(){
+    this.router.navigate(['/home']);
+  }
 
   getUser(){
     if(this.authService.session){
