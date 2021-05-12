@@ -255,5 +255,18 @@ button {
   border: 3px solid var(--gray-100);
 }
 
+.mat-column-name {
+  padding-left: 10px !important;
+  width: 30% !important;
+}
+
+.mat-column-city {
+  padding-left: 10px !important;
+  width: 30% !important;
+}
+.mat-column-state {
+  padding-left: 10px !important;
+  width: 25% !important;
+}
 
 
