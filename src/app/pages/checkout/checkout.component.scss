@@ -1,0 +1,15 @@
+::ng-deep .mat-form-field-appearance-outline.formGeneric .mat-form-field-outline {
+  color: var(--gray-300) !important;
+}
+
+
+.formGeneric {
+  width: 100%;
+}
+
+::ng-deep mat-datepicker-content {
+  background: var(--gray-500);
+  color: var(--gray-100);
+}
+
+

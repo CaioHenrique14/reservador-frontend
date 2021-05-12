@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterModule)
   },
   {
+    path: 'checkout',
+    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutModule)
+  },
+  {
     path: 'internal',
     component: AdminComponent,
     children: [

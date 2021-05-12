@@ -38,7 +38,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      role: ['user']
     });
   }
 
@@ -65,7 +66,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         error => {
           swal.fire({
             title: 'Atenção',
-            text: error.error,
+            text: 'Ocorreu um erro ao realizar um agendamento',
             icon: 'warning',
             confirmButtonText: 'OK'
           });

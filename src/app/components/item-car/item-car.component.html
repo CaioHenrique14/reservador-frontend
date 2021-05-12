@@ -4,6 +4,6 @@
     <h6 class="card-subtitle mb-2 text-muted">{{car.transmission}} - {{car.year}}</h6>
     <img class="card-img-top" [src]="car.image" alt="Imagem de capa do card">
     <span class="card-value">{{ car.price | currency: 'BRL': 'R$'}}</span>
-    <button mat-raised-button [disabled]="!car.available" class="btnItem">{{car.available ? 'Selecionar' : 'Indisponível' }}</button>
+    <button mat-raised-button type="button" (click)="onCheckout()" [disabled]="!car.available" class="btnItem">{{car.available ? 'Selecionar' : 'Indisponível' }}</button>
   </div>
 </div>

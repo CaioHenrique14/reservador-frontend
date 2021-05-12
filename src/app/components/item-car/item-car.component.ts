@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarDTO } from 'src/app/model/car-dto.model';
 
 @Component({
@@ -11,9 +12,13 @@ export class ItemCarComponent implements OnInit {
   @Input()
   car: CarDTO;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onCheckout() {
+    this.router.navigate(['/checkout'], { queryParams: { idCar: this.car._id } });
   }
 
 }

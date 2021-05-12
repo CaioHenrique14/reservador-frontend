@@ -16,7 +16,7 @@
   <form [formGroup]="form">
     <div class="row mt-2">
       <div class="col-8">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Nome</mat-label>
           <input matInput type="email" formControlName="name" />
           <mat-icon matSuffix>commute</mat-icon>
@@ -36,21 +36,21 @@
         </mat-form-field>
       </div>
       <div class="col-3">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Placa</mat-label>
           <input matInput type="text" formControlName="plate" />
           <mat-icon matSuffix> directions_car</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-2">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Ano</mat-label>
           <input matInput type="text" formControlName="year" />
           <mat-icon matSuffix>calendar_today</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-4">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Carroceria</mat-label>
           <mat-select formControlName="body">
             <mat-option value="hatchback">Hatchback</mat-option>
@@ -62,7 +62,7 @@
         </mat-form-field>
       </div>
       <div class="col-3">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <input matInput type="text" hidden formControlName="image" />
           <button type="button" mat-button (click)="fileInput.click()">Escolha o arquivo</button>
           <input hidden accept="image/*" (change)="changeListener($event)" #fileInput type="file" id="file">
@@ -70,7 +70,7 @@
         </mat-form-field>
       </div>
       <div class="col-2">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Câmbio</mat-label>
           <mat-select formControlName="transmission">
             <mat-option value="manual">Manual</mat-option>
@@ -81,7 +81,7 @@
         </mat-form-field>
       </div>
       <div class="col-3">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Combustível</mat-label>
           <mat-select formControlName="fuel">
             <mat-option value="gasolina">Gasolina</mat-option>
@@ -92,21 +92,21 @@
         </mat-form-field>
       </div>
       <div class="col-3">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Cor</mat-label>
           <input matInput type="text" formControlName="color" />
           <mat-icon matSuffix>color_lens</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-2">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Valor</mat-label>
           <input matInput type="text" formControlName="price" />
           <mat-icon matSuffix> attach_money</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-2">
-        <mat-form-field appearance="outline" class="formLogin">
+        <mat-form-field appearance="outline" class="formGeneric">
           <mat-label>Status</mat-label>
           <mat-select formControlName="available">
             <mat-option value="true">Disponível</mat-option>
