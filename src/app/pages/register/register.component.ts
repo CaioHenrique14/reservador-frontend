@@ -32,7 +32,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.route.queryParamMap.pipe(takeUntil(this.destroy)).subscribe(result => this.redrectTo = result.get('redirect'));
+    this.route.queryParamMap.pipe(takeUntil(this.destroy)).subscribe(result =>{ this.redrectTo = result.get('redirect');
+    console.log(this.redrectTo)
+  });
 
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],

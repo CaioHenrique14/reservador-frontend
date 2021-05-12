@@ -67,6 +67,26 @@ export class CheckoutComponent implements OnInit {
     this.form.get('name').setValue(this.user.name);
     this.form.get('email').setValue(this.user.email);
     this.form.get('phone').setValue(this.user.phone);
+  }else{
+    Swal.fire({
+      title: 'Obrigado pelo interesse!',
+      text: "Para finalizar a locação é necessario estar logado",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#8C8C8C',
+      cancelButtonColor: '#F2B705',
+      cancelButtonText: 'Cadastrar-se',
+      confirmButtonText: 'Login',
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+         this.router.navigate(['/login'], { queryParams: { redirect: `/checkout?idCar=${this.idCar}` } });
+
+      }else{
+            this.router.navigate(['/register'], { queryParams: { redirect: `/checkout?idCar=${this.idCar}` } });
+
+      }
+    })
   }
   }
 
